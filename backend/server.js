@@ -1,22 +1,16 @@
+require('dotenv').config();
 const app = require('./app');
 const connectDB = require('./src/config/database');
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
-// Connect to Database then start server
 connectDB()
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT} [${process.env.NODE_ENV || 'development'}]`);
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`🚀 Server running on port ${PORT}`);
     });
   })
   .catch((err) => {
-    console.error('❌ Failed to connect to database:', err.message);
+    console.error('❌ DB connection failed:', err.message);
     process.exit(1);
   });
-
-// Handle unhandled promise rejections
-process.on('unhandledRejection', (err) => {
-  console.error('Unhandled Rejection:', err.message);
-  process.exit(1);
-});
