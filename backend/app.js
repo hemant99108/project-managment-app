@@ -15,9 +15,9 @@ const app = express();
 // ─── CORS ────────────────────────────────────────────────────────────────────
  // ─── CORS ────────────────────────────────────────────────────────────────────
 const corsOptions = {
-    origin: 'https://project-managment-o776ut76y-hemant-kumars-projects-4163ef6a.vercel.app/login',
+    origin: 'https://project-managment-o776ut76y-hemant-kumars-projects-4163ef6a.vercel.app',
     credentials:true,
-    optionSuccessStatus: 200
+    optionsSuccessStatus: 200
 }
 
 app.use(cors(corsOptions));
