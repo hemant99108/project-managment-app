@@ -15,9 +15,7 @@ const app = express();
 // ─── CORS ────────────────────────────────────────────────────────────────────
 app.use(
   cors({
-    origin: function (origin, callback) {
-      callback(null, true);  // allow all origins
-    },
+    origin: process.env.FRONTEND_URL || '*',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
