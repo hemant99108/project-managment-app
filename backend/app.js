@@ -15,7 +15,9 @@ const app = express();
 // ─── CORS ────────────────────────────────────────────────────────────────────
 app.use(
   cors({
-    origin:'*',
+    origin: function (origin, callback) {
+      callback(null, true);  // allow all origins
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
